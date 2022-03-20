@@ -1,0 +1,17 @@
+beautifulsoup4==4.10.0
+certifi==2021.10.8
+charset-normalizer==2.0.10
+constant==0.0.4
+HTMLParser==0.0.2
+idna==3.3
+Jinja2==3.0.3
+lxml==4.7.1
+MarkupSafe==2.0.1
+pygrok==1.0.0
+python-http-client==3.3.5
+regex==2022.1.18
+requests==2.27.1
+sendgrid==6.9.4
+soupsieve==2.3.1
+starkbank-ecdsa==2.0.3
+urllib3==1.26.8
