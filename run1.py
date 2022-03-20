@@ -118,22 +118,24 @@ def parser(url):
 
     jsondata = []
 
-    jsondata.append("<LNG><name>"+namelng+"</name><from>"+textprinttextfrom+"</from><fromrussian>"+warningfrom+"</fromrussian><to>"+textprinttextto+"</to><torussian>"+warningfto+"</torussian><flag>"+flagtext+"</flag><deadweight>"+deadweight+"</deadweight></LNG>") 
-    ###############
-    today = date.today()
-    d1 = today.strftime("%d-%m-%Y")
-    mode = 0o744
-    try:
-        cwd = os.getcwd() 
-        os.mkdir(cwd+"/output-xml-"+d1, mode)
-    except OSError:
-        #print("Папка уже создана!")
-        n = gc.collect()
+    if (warningfrom == "yes" or warningfto == "yes"):
 
-    textfile = codecs.open(cwd+"/output-xml-"+d1+"/lng-"+d1+".xml", "a", "utf-8")
-    for element in jsondata:
-        textfile.write(element + "\n")
-    textfile.close()
+        jsondata.append("<LNG><name>"+namelng+"</name><from>"+textprinttextfrom+"</from><fromrussian>"+warningfrom+"</fromrussian><to>"+textprinttextto+"</to><torussian>"+warningfto+"</torussian><flag>"+flagtext+"</flag><deadweight>"+deadweight+"</deadweight></LNG>") 
+        ###############
+        today = date.today()
+        d1 = today.strftime("%d-%m-%Y")
+        mode = 0o744
+        try:
+            cwd = os.getcwd() 
+            os.mkdir(cwd+"/output-xml-"+d1, mode)
+        except OSError:
+            #print("Папка уже создана!")
+            n = gc.collect()
+
+        textfile = codecs.open(cwd+"/output-xml-"+d1+"/lng-"+d1+".xml", "a", "utf-8")
+        for element in jsondata:
+            textfile.write(element + "\n")
+        textfile.close()
 
 def preparser(href_p):
         ##########
